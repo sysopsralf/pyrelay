@@ -30,9 +30,9 @@ creds = {
     'server':   'mqtt.relayr.io',
     'port':     1883
 }
-    def __init__(self, client, credentials=creds):
+    def __init__(self, client):
         self.client = client
-        self.credentials = credentials
+        self.credentials = creds
 
     def on_connect(self, client, userdata, flags, rc):
         return "Connected."
@@ -48,7 +48,7 @@ creds = {
 
 def main(creds, publishing_period):
     client = mqtt.Client(client_id=credentials['clientId'])
-    delegate = MqttDelegate(client, creds)
+    delegate = MqttDelegate(client)
     client.on_connect = delegate.on_connect
     client.on_message = delegate.on_message
     client.on_publish = delegate.on_publish
