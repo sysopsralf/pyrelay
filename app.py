@@ -17,8 +17,8 @@ publishing_period = 1000
 app = Flask(__name__)
 
 @app.route("/")
-def hello():
-    return "Hello World!!"
+#def hello():
+    #return "Hello World!!"
 
 class MqttDelegate(object):
     "A delegate class providing callbacks for an MQTT client."
@@ -54,8 +54,8 @@ def main(credentials, publishing_period):
         server, port = credentials['server'], credentials['port']
         client.connect(server, port=port, keepalive=60)
     except:
-        print('Connection failed, check your credentials!')
-        return
+        return "Connection failed, check your credentials!"
+        
 
     # set 200 ms as minimum publishing period
     if publishing_period < 200:
