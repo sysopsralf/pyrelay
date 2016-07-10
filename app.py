@@ -66,7 +66,7 @@ def main(credentials, publishing_period):
 
         # publish data
         message = {
-            'meaning': 'py temperature',
+            'meaning': 'someMeaning',
             'value': 'py something'
         }
         client.publish(credentials['topic'] +'data', json.dumps(message))
