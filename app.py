@@ -20,19 +20,8 @@ app = Flask(__name__)
 #def hello():
     #return "Hello World!!"
 
-class MqttDelegate(object):
-    "A delegate class providing callbacks for an MQTT client."
-creds = {
-    'clientId': 'TT2DMJUPgQIeeHudUeT9UPg',
-    'user':     '4f60cc25-43e0-4087-9e1e-e754793f543e',
-    'password': 'j5u0sR_NvnEq',
-    'topic':    '/v1/4f60cc25-43e0-4087-9e1e-e754793f543e/',
-    'server':   'mqtt.relayr.io',
-    'port':     1883
-}
-    def __init__(self, client):
-        self.client = client
-        self.credentials = creds
+self.client = client
+self.credentials = creds
 
     def on_connect(self, client, userdata, flags, rc):
         return "Connected."
