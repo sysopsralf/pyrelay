@@ -39,7 +39,7 @@ class MqttDelegate(object):
         return "Message published."
 
 
-def main(credentials, publishing_period):
+def main(creds, publishing_period):
     client = mqtt.Client(client_id=credentials['clientId'])
     delegate = MqttDelegate(client, creds)
     client.on_connect = delegate.on_connect
